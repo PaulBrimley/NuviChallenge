@@ -1,8 +1,23 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    /*padding: 0 0 0 5px;*/
+}
+
 .actor {
 }
 
 .actorArea {
     padding: 10px;
+}
+
+.actorPanel {
+    position: relative;
 }
 
 .actorAvatar {
@@ -28,11 +43,40 @@
     overflow-y: auto;
 }
 
+.actorDataAreaPanelButton {
+    position: absolute;
+    bottom: -3px;
+    right: 5px;
+    opacity: .3;
+    cursor: pointer;
+}
+
+.actorDataAreaPanelButton:hover {
+    opacity: 1;
+}
+
+.actorDataAreaPanelMap {
+    position: absolute;
+    bottom: -3px;
+    left: 5px;
+    opacity: .3;
+    cursor: pointer;
+}
+
+.actorDataAreaPanelMap:hover {
+    opacity: 1;
+}
+
 .actorHeader {
     display: flex;
     padding-bottom: 5px;
     margin-bottom: 10px;
     border-bottom: 1px solid #eee;
+}
+
+.actorLikes {
+    display: flex;
+    justify-content: space-between;
 }
 
 .actorMessage {
@@ -51,17 +95,94 @@
     margin-left: 10px;
 }
 
+.animateSlide.ng-enter {
+    transition: 250ms linear all;
+    left: 100%;
+}
+
+.animateSlide.ng-enter.ng-enter-active {
+    left: 0;
+}
+
 .border {
     border: 1px solid blue;
 }
 
-.animate.ng-enter {
-    transition:1s linear all;
-    left: 100%;
+.cursorDefault {
+    cursor: default;
 }
 
-.animate.ng-enter.ng-enter-active {
-    left: 0;
+.cursorPointer {
+    cursor: pointer;
+}
+
+.header {
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+    background: #fff;
+}
+
+.headerInside {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+#imageModal {
+    top: 5%;
+}
+
+.mapContainer {
+    height: 300px;
+    width: 100%;
+}
+
+#mapModal {
+    top: 5%;
+}
+
+.navButtonNext {
+    margin-left: 5px;
+}
+
+.navButtonPrev {
+    margin-left: 3px;
+}
+
+.navSelector {
+    margin-left: 3px;
+}
+
+.navSelectorActive {
+    text-decoration: underline;
+}
+
+.navSelectorBegin {
+    margin-left: 3px;
+    color: #337ab7;
+}
+
+.navSelectorBeginDots {
+    margin-left: -3px;
+}
+
+.navSelectorEnd {
+    margin-left: 3px;
+    color: #337ab7;
+}
+
+.mainContent {
+    margin-top: 60px;
+}
+
+.messageImage {
+    width: 100%;
 }
 
 .panel-body {
@@ -70,4 +191,36 @@
 
 .propagationNavs {
     display: flex;
+    align-items: center;
+}
+
+.user {
+    margin-left: 5px;
+}
+
+.userControl {
+    display: flex;
+    align-items: center;
+}
+
+.userControlActive {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.viewAmountControls {
+    margin-left: 2px;
+}
+
+.viewControl {
+    margin-left: 5px;
+}
+
+.viewControls {
+    padding: 4px;
+}
+
+.viewControlsActive {
+    background: #eee;
+    border-radius: 2px;
 }

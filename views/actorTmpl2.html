@@ -1,0 +1,37 @@
+<div id="{{'actorHolder' + $index}}" class="col-xs-12">
+  <div class="panel panel-default actor">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-2">
+          <a href="{{data.actor_url}}" target="_blank">{{data.actor_name}}</a>
+        </div>
+        <div class="col-sm-2">
+          <div>Provider: {{data.provider}}</div>
+          <div>Date: {{data.activity_date | date:'mediumDate'}}</div>
+        </div>
+        <div class="col-sm-4">
+          <div ng-if="!data.activity_attachment_type">{{data.activity_message}}</div>
+          <div ng-if="data.activity_attachment_type">
+            <div>Message is an image.</div>
+            <a class="cursorPointer" ng-click="viewImage()">View Image</a>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div style="margin-bottom: 5px;">
+            <button class="btn btn-info btn-xs btn-block" ng-if="data.activity_latitude"  ng-click="viewMap()">View Map</button>
+          </div>
+          <div>
+            <button class="btn btn-primary btn-xs btn-block">Reply</button>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="actorLikes">
+            <div><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>: {{data.activity_likes}}</div>
+            <div><i class="fa fa-share" aria-hidden="true"></i>: {{data.activity_shares}}</div>
+            <div><i class="fa fa-commenting-o" aria-hidden="true"></i>: {{data.activity_comments}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div id="{{'actorHolder' + $index}}" class="col-sm-6 col-md-4 col-lg-3">
+  <div class="panel panel-default actor">
+    <div class="panel-body actorPanel">
+      <a ng-if="data.activity_latitude" class="actorDataAreaPanelMap" ng-click="viewMap()">View Map</a>
+      <a ng-if="panelActive" class="actorDataAreaPanelButton" ng-click="changePanel()">More...</a>
+      <a ng-if="!panelActive" class="actorDataAreaPanelButton" ng-click="changePanel()">Back...</a>
+      <div class="actorHeader">
+        <div class="actorAvatar">
+          <img src="{{data.actor_avator}}" alt="">
+        </div>
+        <div class="actorName">
+          <a href="{{data.actor_url}}" target="_blank">{{data.actor_name}}</a>
+        </div>
+      </div>
+      <div ng-if="panelActive" class="actorDataAreaPanel1 animateSlide">
+        <div class="row">
+          <div class="col-xs-6">
+            <div>Provider: {{data.provider}}</div>
+          </div>
+          <div class="col-xs-6">
+            <div>Date: {{data.activity_date | date:'mediumDate'}}</div>
+          </div>
+        </div>
+        <br/>
+        <div ng-if="!data.activity_attachment_type" class="actorMessage">"{{data.activity_message}}"</div>
+        <div ng-if="data.activity_attachment_type">
+          Message is in image format. Click "More" to view image.
+        </div>
+      </div>
+      <div ng-if="!panelActive" class="actorDataAreaPanel2 animateSlide">
+        <div ng-show="data.activity_attachment_type">
+          <div>Message Image:</div>
+          <div class="actorMessage">
+            <img src="{{data.activity_attachment}}" alt="">
+          </div>
+        </div>
+        <div>User Name: {{data.actor_username}}</div>
+        <div>User Id: {{data.id}}</div>
+        <div>User Description: {{data.actor_description}}</div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="cursorPointer">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>: {{data.activity_likes}}
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="cursorPointer">
+            <i class="fa fa-share" aria-hidden="true"></i>: {{data.activity_shares}}
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="cursorPointer">
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>: {{data.activity_comments}}
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div>
+            <button class="btn btn-primary btn-xs">Reply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
