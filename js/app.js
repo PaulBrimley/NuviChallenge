@@ -1,2 +1,2 @@
-var app = angular.module('nuviAnalytics', []);
+var app = angular.module('nuviAnalytics', ['ngAnimate']);
 

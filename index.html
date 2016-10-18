@@ -2,16 +2,33 @@
 <html lang="en" ng-app="nuviAnalytics">
 <head>
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body ng-controller="analyticsController">
+  <div ng-show="errorMessage">{{errorMessage}}</div>
+  <div class="actorArea">
+    <div class="row">
+      <actor data="dataEntry" ng-repeat="dataEntry in currentData"></actor>
+    </div>
+  </div>
 
+  <div class="propagationNavs">
+    <button ng-click="propagatePagination(currentDataSet - 1)" ng-disabled="currentDataSet === 0">Prev</button>
+    <div ng-repeat="nav in dataSets">
+      <a ng-if="$index >= (currentDataSet - 3) && $index <= (currentDataSet + 3)" ng-click="propagatePagination($index)">{{$index}}</a>
+    </div>
+    <button ng-click="propagatePagination(currentDataSet + 1)" ng-disabled="currentDataSet === dataSets.length - 1">Next</button>
+  </div>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.1/angular.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/angular.min.js"></script>
+<script src="./js/angular-animate.min.js"></script>
 <script src="./js/app.js"></script>
 <script src="./js/mainController.js"></script>
 <script src="./js/mainService.js"></script>
+<script src="./js/appDirectives.js"></script>
 </body>
 </html>

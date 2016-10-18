@@ -1,0 +1,47 @@
+<div id="{{'actorHolder' + $index}}" class="col-sm-6 col-md-4 col-lg-3">
+  <div class="panel panel-default actor">
+    <div class="panel-body">
+      <div class="actorHeader">
+        <div class="actorAvatar">
+          <img src="{{data.actor_avator}}" alt="">
+        </div>
+        <div class="actorName">
+          {{data.actor_name}}
+        </div>
+        <button class="btn btn-primary btn-xs" ng-click="changePanel()">Click</button>
+      </div>
+      <div ng-if="panelActive" class="actorDataAreaPanel1 animate">
+        <div ng-if="!data.activity_attachment_type" class="actorMessage">"{{data.activity_message}}"</div>
+        <div ng-if="data.activity_attachment_type" class="actorMessage">
+          <div>Message: {{data.activity_message}}</div>
+          <div>Image:</div>
+          <img src="{{data.activity_attachment}}" alt="">
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div>Provider: {{data.provider}}</div>
+          </div>
+          <div class="col-xs-6">
+            <div>Date: {{data.activity_date | date:'mediumDate'}}</div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="!panelActive" class="actorDataAreaPanel2 animate">
+        Hello
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+        <div class="col-xs-4">
+          <div><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>: {{data.activity_likes}}</div>
+        </div>
+        <div class="col-xs-4">
+          <div><i class="fa fa-share" aria-hidden="true"></i>: {{data.activity_shares}}</div>
+        </div>
+        <div class="col-xs-4">
+          <div><i class="fa fa-commenting-o" aria-hidden="true"></i>: {{data.activity_comments}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

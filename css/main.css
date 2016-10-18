@@ -1,0 +1,73 @@
+.actor {
+}
+
+.actorArea {
+    padding: 10px;
+}
+
+.actorAvatar {
+    width: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #eee;
+}
+
+.actorAvatar img {
+    width: 100%;
+}
+
+.actorDataAreaPanel1 {
+    position: relative;
+    height: 100px;
+    overflow-y: auto;
+}
+
+.actorDataAreaPanel2 {
+    position: relative;
+    height: 100px;
+    overflow-y: auto;
+}
+
+.actorHeader {
+    display: flex;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.actorMessage {
+    font-style: italic;
+    padding: 0 5px;
+}
+
+.actorMessage img {
+    width: 75%;
+}
+
+.actorName {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+
+.border {
+    border: 1px solid blue;
+}
+
+.animate.ng-enter {
+    transition:1s linear all;
+    left: 100%;
+}
+
+.animate.ng-enter.ng-enter-active {
+    left: 0;
+}
+
+.panel-body {
+    overflow: hidden;
+}
+
+.propagationNavs {
+    display: flex;
+}
