@@ -1,4 +1,4 @@
-<div id="{{'actorHolder' + $index}}" class="col-sm-6 col-md-4 col-lg-3">
+<div id="{{'actorHolder' + index}}" class="col-sm-6 col-md-4 col-lg-3">
   <div class="panel panel-default actor">
     <div class="panel-body actorPanel">
       <a ng-if="data.activity_latitude" class="actorDataAreaPanelMap" ng-click="viewMap()">View Map</a>
@@ -42,23 +42,23 @@
     <div class="panel-footer">
       <div class="row">
         <div class="col-xs-3">
-          <div class="cursorPointer">
+          <div class="cursorPointer" ng-click="like()">
             <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>: {{data.activity_likes}}
           </div>
         </div>
         <div class="col-xs-3">
-          <div class="cursorPointer">
+          <div class="cursorPointer" ng-click="share()">
             <i class="fa fa-share" aria-hidden="true"></i>: {{data.activity_shares}}
           </div>
         </div>
         <div class="col-xs-3">
-          <div class="cursorPointer">
+          <div>
             <i class="fa fa-commenting-o" aria-hidden="true"></i>: {{data.activity_comments}}
           </div>
         </div>
         <div class="col-xs-3">
           <div>
-            <button class="btn btn-primary btn-xs">Reply</button>
+            <button class="btn btn-primary btn-xs" ng-click="reply()">Reply</button>
           </div>
         </div>
       </div>

@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="headerInside">
+    <div class="viewControl">
+
+    </div>
+    <div ng-if="currentData.length" class="propagationNavs">
+
+    </div>
+    <div class="userControl">
+      <div class="cursorPointer user" ng-class="{userControlActive: userRoute === 'user'}" ng-click="changeRoute('user')">User</div>
+      <div class="cursorPointer user" ng-class="{userControlActive: userRoute === 'admin'}" ng-click="changeRoute('admin')">Admin</div>
+    </div>
+  </div>
+</div>
+
+<div class="mainContent">
+  <div class="chart">
+    <div class="chartProvider" ng-repeat="provider in providerObj">
+      <div class="chartProviderTitle">{{provider.title}}</div>
+      <div class="chartBar" id="{{'likes' + provider.title}}">
+        <div>Likes</div>
+        <div>{{provider.likes}}</div>
+      </div>
+      <div class="chartBar" id="{{'shares' + provider.title}}">
+        <div>Shares</div>
+        <div>{{provider.shares}}</div>
+      </div>
+      <div class="chartBar" id="{{'comments' + provider.title}}">
+        <div>Comments</div>
+        <div>{{provider.comments}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+

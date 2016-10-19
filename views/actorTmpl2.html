@@ -21,13 +21,13 @@
             <button class="btn btn-info btn-xs btn-block" ng-if="data.activity_latitude"  ng-click="viewMap()">View Map</button>
           </div>
           <div>
-            <button class="btn btn-primary btn-xs btn-block">Reply</button>
+            <button class="btn btn-primary btn-xs btn-block" ng-click="reply(index)">Reply</button>
           </div>
         </div>
         <div class="col-sm-2">
           <div class="actorLikes">
-            <div><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>: {{data.activity_likes}}</div>
-            <div><i class="fa fa-share" aria-hidden="true"></i>: {{data.activity_shares}}</div>
+            <div class="cursorPointer" ng-click="like()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>: {{data.activity_likes}}</div>
+            <div class="cursorPointer" ng-click="share()"><i class="fa fa-share" aria-hidden="true"></i>: {{data.activity_shares}}</div>
             <div><i class="fa fa-commenting-o" aria-hidden="true"></i>: {{data.activity_comments}}</div>
           </div>
         </div>

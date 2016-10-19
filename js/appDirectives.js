@@ -3,13 +3,23 @@ var app = angular.module('nuviAnalytics');
 app.directive('actor', function($rootScope, $timeout, mapService) {
     return {
         scope: {
-            data: '='
+            data: '=',
+            index: '=',
+            reply: '&'
         },
         template: '<div ng-include="contentUrl"></div>',
         link: function (scope, elem, attrs) {
             scope.panelActive = true;
             scope.changePanel = function () {
                 scope.panelActive = !scope.panelActive;
+            };
+
+            scope.like = function () {
+                scope.data.activity_likes++;
+            };
+
+            scope.share = function () {
+                scope.data.activity_shares++;
             };
 
             scope.viewImage = function () {

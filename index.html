@@ -7,80 +7,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body ng-controller="analyticsController">
-
-  <div class="modal fade hmodal-success" id="mapModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="mapContainer" id="map"></div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary btn-xs" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade hmodal-success" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img class="messageImage" src="{{currentImage}}" alt="">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary btn-xs" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="header">
-    <div class="headerInside">
-      <div class="viewControl">
-        <form action="" class="form-inline">
-          <i class="fa fa-list cursorPointer viewControls" ng-class="{viewControlsActive: viewActive}" aria-hidden="true" ng-click="setView('list')"></i>
-          <i class="fa fa-th cursorPointer viewControls" ng-class="{viewControlsActive: !viewActive}" aria-hidden="true" ng-click="setView('panel')"></i>
-          <select class="form-control cursorPointer viewAmountControls" ng-model="displayAmount" ng-change="setDisplayQuantity()">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-          </select>
-        </form>
-      </div>
-      <div ng-if="currentData.length" class="propagationNavs">
-        <a class="cursorPointer navButtonPrev" ng-click="propagatePagination(currentDataSet - 1)" ng-hide="currentDataSet === 0"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-        <div class="navSelectorBegin" ng-show="currentDataSet >= 2">
-          <a href="" ng-click="propagatePagination(0)">1</a>
-          <span class="cursorDefault navSelectorBeginDots">...</span>
-        </div>
-        <div ng-repeat="nav in dataSets">
-          <a class="navSelector cursorPointer" ng-class="{navSelectorActive: $index === currentDataSet}" ng-if="$index >= (currentDataSet - 1) && $index <= (currentDataSet + 1)" ng-click="propagatePagination($index)">{{$index + 1}}</a>
-        </div>
-        <div class="navSelectorEnd" ng-show="currentDataSet <= dataSets.length - 3">
-          <span class="cursorDefault">...</span> <a href="" ng-click="propagatePagination(dataSets.length - 1)">{{dataSets.length}}</a>
-        </div>
-        <a class="cursorPointer navButtonNext" ng-click="propagatePagination(currentDataSet + 1)" ng-hide="currentDataSet === dataSets.length - 1"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-      </div>
-      <div class="userControl">
-        <div class="cursorPointer user" ng-class="{userControlActive: userRoute}" ng-click="changeRoute('user')">User</div>
-        <div class="cursorPointer user" ng-class="{userControlActive: !userRoute}" ng-click="changeRoute('admin')">Admin</div>
-      </div>
-    </div>
-  </div>
-  <div class="mainContent">
-    <div ng-show="errorMessage">{{errorMessage}}</div>
-    <div class="actorArea">
-      <div class="row">
-        <actor template="{{currentView}}" data="dataEntry" ng-repeat="dataEntry in currentData"></actor>
-      </div>
-    </div>
-  </div>
+  <div class="backgroundHolder"></div>
+  <ui-view></ui-view>
 
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script src="./js/jquery.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/angular.min.js"></script>
 <script src="./js/angular-animate.min.js"></script>
+  <script src="./js/angular-ui-router.min.js"></script>
 <script src="./js/app.js"></script>
 <script src="./js/mainController.js"></script>
 <script src="./js/mainService.js"></script>
